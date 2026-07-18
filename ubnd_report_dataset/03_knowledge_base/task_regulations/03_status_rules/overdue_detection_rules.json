@@ -1,0 +1,47 @@
+{
+  "document_marker": "NOT_OFFICIAL",
+  "document_status": "NON_PRODUCTION_DRAFT",
+  "domain": "tasks",
+  "version": "draft-1.0",
+  "approval_required": true,
+  "evaluation_timezone": "Asia/Ho_Chi_Minh",
+  "date_semantics": "calendar_date",
+  "rules": [
+    {
+      "rule_id": "TASK_OVERDUE_UNFINISHED",
+      "priority": 100,
+      "all": [
+        {"field": "due_date", "operator": "is_not_null"},
+        {"field": "evaluation_date", "operator": "greater_than_field", "value_field": "due_date"},
+        {"field": "completion_date", "operator": "is_null"},
+        {"field": "status", "operator": "not_in", "value": ["SUSPENDED"]}
+      ],
+      "result_status": "OVERDUE"
+    },
+    {
+      "rule_id": "TASK_COMPLETED_LATE",
+      "priority": 90,
+      "all": [
+        {"field": "due_date", "operator": "is_not_null"},
+        {"field": "completion_date", "operator": "greater_than_field", "value_field": "due_date"}
+      ],
+      "result_status": "COMPLETED_LATE"
+    },
+    {
+      "rule_id": "TASK_COMPLETED_ON_TIME",
+      "priority": 80,
+      "all": [
+        {"field": "due_date", "operator": "is_not_null"},
+        {"field": "completion_date", "operator": "less_than_or_equal_field", "value_field": "due_date"}
+      ],
+      "result_status": "COMPLETED_ON_TIME"
+    }
+  ],
+  "edge_cases": {
+    "evaluation_on_due_date": "NOT_OVERDUE",
+    "missing_due_date": "VALIDATION_WARNING_AND_MANUAL_REVIEW",
+    "missing_evaluation_date": "VALIDATION_ERROR_NO_AUTOMATIC_STATUS",
+    "suspended_after_due_date": "MANUAL_REVIEW_NO_AUTOMATIC_OVERDUE",
+    "conflicting_completion_fields": "VALIDATION_ERROR_NO_AUTOMATIC_STATUS"
+  }
+}

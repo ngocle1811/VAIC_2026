@@ -1,0 +1,18 @@
+{
+    "schema_version":  "1.0",
+    "report_type":  "complaint",
+    "rules":  [
+                  {
+                      "id":  "RULE_KNTC_01",
+                      "description":  "Tổng số đơn tiếp nhận phải bằng tổng các loại đơn phân loại theo tính chất (khiếu nại + tố cáo + kiến nghị phản ánh)",
+                      "formula":  "tong_so_don == don_khieu_nai + don_to_cao + don_kien_nghi_phan_anh",
+                      "severity":  "warning"
+                  },
+                  {
+                      "id":  "RULE_KNTC_02",
+                      "description":  "Tổng số đơn đã giải quyết, đang giải quyết và quá hạn chưa giải quyết phải bằng tổng số đơn thuộc thẩm quyền",
+                      "formula":  "don_thuoc_tham_quyen == don_da_giai_quyet + don_dang_giai_quyet + don_qua_han_chua_giai_quyet",
+                      "severity":  "error"
+                  }
+              ]
+}

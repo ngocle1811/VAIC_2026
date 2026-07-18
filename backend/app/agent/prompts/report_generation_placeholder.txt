@@ -1,0 +1,2 @@
+Placeholder only. Full report-generation behavior is intentionally deferred.
+

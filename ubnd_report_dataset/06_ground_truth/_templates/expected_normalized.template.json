@@ -1,0 +1,28 @@
+{
+  "ground_truth_marker": "DRAFT_NOT_GROUND_TRUTH",
+  "case_id": null,
+  "domain": null,
+  "report_metadata": {
+    "report_type": null,
+    "period_start": null,
+    "period_end": null,
+    "organization_code": null
+  },
+  "normalized_fields": [
+    {
+      "canonical_field": null,
+      "expected_value": null,
+      "data_type": null,
+      "unit": null,
+      "source": {
+        "file_sha256": null,
+        "page_number": null,
+        "sheet_name": null,
+        "row_number": null,
+        "cell_range": null,
+        "source_text": null
+      },
+      "review_note": null
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "document_marker": "NOT_OFFICIAL",
+  "document_status": "NON_PRODUCTION_DRAFT",
+  "domain": "tasks",
+  "version": "draft-1.0",
+  "approval_required": true,
+  "rules": [
+    {
+      "rule_id": "PROGRESS_IS_NUMERIC",
+      "assert": {"field": "progress_percent", "operator": "is_number"},
+      "severity": "error"
+    },
+    {
+      "rule_id": "PROGRESS_MINIMUM",
+      "assert": {"field": "progress_percent", "operator": "greater_than_or_equal", "value": 0},
+      "severity": "error"
+    },
+    {
+      "rule_id": "PROGRESS_MAXIMUM",
+      "assert": {"field": "progress_percent", "operator": "less_than_or_equal", "value": 100},
+      "severity": "error"
+    },
+    {
+      "rule_id": "NOT_STARTED_PROGRESS",
+      "when": {"field": "status", "operator": "equal", "value": "NOT_STARTED"},
+      "assert": {"field": "progress_percent", "operator": "equal", "value": 0},
+      "severity": "warning"
+    }
+  ],
+  "missing_progress_policy": {
+    "result": "VALIDATION_WARNING_AND_MANUAL_REVIEW",
+    "default_value": null,
+    "allow_automatic_imputation": false,
+    "message": "Không tự suy diễn hoặc thay thế tiến độ còn thiếu."
+  }
+}

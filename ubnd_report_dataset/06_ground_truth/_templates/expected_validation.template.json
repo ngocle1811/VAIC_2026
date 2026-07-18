@@ -1,0 +1,25 @@
+{
+  "ground_truth_marker": "DRAFT_NOT_GROUND_TRUTH",
+  "case_id": null,
+  "expected_processing_status": null,
+  "expected_errors": [
+    {
+      "rule_id": null,
+      "rule_version": null,
+      "field": null,
+      "expected_message_code": null,
+      "evidence": null
+    }
+  ],
+  "expected_warnings": [],
+  "expected_kpis": [
+    {
+      "indicator_code": null,
+      "formula_version": null,
+      "source_fields": [],
+      "expected_value": null,
+      "unit": null,
+      "rounding_rule": null
+    }
+  ]
+}

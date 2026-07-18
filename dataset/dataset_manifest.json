@@ -1,0 +1,87 @@
+{
+  "manifest_version": "1.0",
+  "official_collection_root": "../ubnd_report_dataset",
+  "official_collection_status": "TEAM_MANAGED_INCOMPLETE",
+  "synthetic_test_root": "synthetic_tests",
+  "synthetic_policy": {
+    "input_marker": "SYNTHETIC_TEST_DATA",
+    "ground_truth_marker": "NOT_OFFICIAL",
+    "contains_real_personal_data": false,
+    "ground_truth_origin": "explicit_fixture_values_only",
+    "llm_generated_ground_truth": false
+  },
+  "synthetic_pairs": [
+    {
+      "domain": "population",
+      "input": "synthetic_tests/inputs/population.json",
+      "ground_truth": "synthetic_tests/ground_truth/population.json"
+    },
+    {
+      "domain": "complaints",
+      "input": "synthetic_tests/inputs/complaints.json",
+      "ground_truth": "synthetic_tests/ground_truth/complaints.json"
+    },
+    {
+      "domain": "tasks",
+      "input": "synthetic_tests/inputs/tasks.json",
+      "ground_truth": "synthetic_tests/ground_truth/tasks.json"
+    }
+  ],
+  "non_official_task_drafts": [
+    {
+      "root": "../ubnd_report_dataset/03_knowledge_base/task_regulations",
+      "marker": "NOT_OFFICIAL",
+      "status": "NON_PRODUCTION_DRAFT",
+      "approved_for_production": false,
+      "contents": [
+        "03_status_rules/task_status_definitions.json",
+        "03_status_rules/task_status_transition_rules.json",
+        "03_status_rules/overdue_detection_rules.json",
+        "04_evaluation_rules/task_completion_rules.json",
+        "04_evaluation_rules/task_progress_validation.json",
+        "04_evaluation_rules/task_deadline_rules.json",
+        "04_evaluation_rules/task_kpi_formulas.md",
+        "05_guidelines/task_reporting_sop.md"
+      ]
+    }
+  ],
+  "non_official_master_data": {
+    "root": "../ubnd_report_dataset/02_master_data",
+    "marker_column": "record_status",
+    "marker_value": "NOT_OFFICIAL",
+    "approved_for_production": false,
+    "files": [
+      "indicator_master.csv",
+      "report_type_master.csv",
+      "reporting_period_master.csv",
+      "task_status_master.csv",
+      "field_alias_master.csv"
+    ]
+  },
+  "official_complaint_reporting_source": {
+    "status": "SOURCE_PRESERVED",
+    "document_number": "06/2025/TT-TTCP",
+    "docx": "../ubnd_report_dataset/03_knowledge_base/complaint_regulations/03_circulars/06_2025_TT_TTCP.docx",
+    "docx_sha256": "503C73B142179493DD4F6192544525E76DC17F3C96B0C8201796F090C46F5A7C",
+    "pdf": "../ubnd_report_dataset/03_knowledge_base/complaint_regulations/03_circulars/06_2025_TT_TTCP.pdf",
+    "pdf_sha256": "D15DAB5FCA26F65BBA87AE51C579593C374015784D06A80001740DCB656A7E03",
+    "extracted_template_status": "MACHINE_EXTRACTED_PENDING_HUMAN_REVIEW",
+    "approved_for_production": false,
+    "templates": [
+      "../ubnd_report_dataset/04_templates/complaints/mau_02_bao_cao_kntc.docx",
+      "../ubnd_report_dataset/04_templates/complaints/bieu_01_TCD_tiep_cong_dan.xlsx",
+      "../ubnd_report_dataset/04_templates/complaints/bieu_02_XLD_tiep_nhan_xu_ly_don.xlsx",
+      "../ubnd_report_dataset/04_templates/complaints/bieu_03_GQKN_giai_quyet_khieu_nai.xlsx",
+      "../ubnd_report_dataset/04_templates/complaints/bieu_04_GQTC_giai_quyet_to_cao.xlsx",
+      "../ubnd_report_dataset/04_templates/complaints/bieu_05_KQTH_ket_qua_thi_hanh.xlsx",
+      "../ubnd_report_dataset/04_templates/complaints/bieu_06_QLKNTC_quan_ly_nha_nuoc.xlsx"
+    ]
+  },
+  "human_reviewed_ground_truth": {
+    "root": "../ubnd_report_dataset/06_ground_truth",
+    "registry": "../ubnd_report_dataset/06_ground_truth/case_registry.csv",
+    "status": "SCAFFOLD_ONLY_AWAITING_OFFICIAL_INPUT",
+    "approved_case_count": 0,
+    "llm_ground_truth_allowed": false
+  }
+}

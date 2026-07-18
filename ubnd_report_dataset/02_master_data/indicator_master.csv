@@ -1,0 +1,7 @@
+indicator_code,domain,indicator_name,data_type,unit,aggregation,canonical_field,source_reference,source_verification_status,record_status,approved_for_production
+POP_TOTAL,population,Tổng số nhân khẩu,integer,người,last_value,population_total,CT12_residence_statistics.doc,USER_PROVIDED_UNVERIFIED,NOT_OFFICIAL,false
+POP_TEMPORARY,population,Số người tạm trú,integer,người,sum,population_temporary,CT12_residence_statistics.doc,USER_PROVIDED_UNVERIFIED,NOT_OFFICIAL,false
+COM_RECEIVED,complaints,Tổng số đơn tiếp nhận,integer,đơn,sum,received_cases,06_2025_TT_TTCP.docx,SOURCE_LOCATED_FIELD_MAPPING_PENDING,NOT_OFFICIAL,false
+COM_RESOLVED,complaints,Số đơn đã giải quyết,integer,đơn,sum,resolved_cases,06_2025_TT_TTCP.docx,SOURCE_LOCATED_FIELD_MAPPING_PENDING,NOT_OFFICIAL,false
+TASK_TOTAL,tasks,Tổng số nhiệm vụ,integer,nhiệm vụ,count,task_id,task_progress_appendix.xlsx,REPOSITORY_DRAFT_TEMPLATE,NOT_OFFICIAL,false
+TASK_OVERDUE,tasks,Số nhiệm vụ quá hạn,integer,nhiệm vụ,count,status,task_progress_appendix.xlsx,REPOSITORY_DRAFT_TEMPLATE,NOT_OFFICIAL,false

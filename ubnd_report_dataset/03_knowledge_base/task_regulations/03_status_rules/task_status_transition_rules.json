@@ -1,0 +1,85 @@
+{
+  "document_marker": "NOT_OFFICIAL",
+  "document_status": "NON_PRODUCTION_DRAFT",
+  "domain": "tasks",
+  "version": "draft-1.0",
+  "approval_required": true,
+  "default_policy": "REJECT_UNDEFINED_TRANSITION",
+  "principles": [
+    "Không tự sửa giá trị nguồn để làm hợp lệ chuyển trạng thái.",
+    "Mọi chuyển trạng thái phải lưu trạng thái cũ, trạng thái mới, thời điểm, người thực hiện và lý do.",
+    "SUSPENDED và việc mở lại nhiệm vụ đã hoàn thành cần bằng chứng phê duyệt."
+  ],
+  "transitions": [
+    {
+      "from": "NOT_STARTED",
+      "to": "IN_PROGRESS",
+      "required_fields": ["started_date"],
+      "required_evidence": []
+    },
+    {
+      "from": "NOT_STARTED",
+      "to": "SUSPENDED",
+      "required_fields": ["status_reason"],
+      "required_evidence": ["approval_reference"]
+    },
+    {
+      "from": "IN_PROGRESS",
+      "to": "COMPLETED_ON_TIME",
+      "required_fields": ["completion_date", "completion_result"],
+      "required_evidence": []
+    },
+    {
+      "from": "IN_PROGRESS",
+      "to": "COMPLETED_LATE",
+      "required_fields": ["completion_date", "completion_result"],
+      "required_evidence": []
+    },
+    {
+      "from": "IN_PROGRESS",
+      "to": "OVERDUE",
+      "required_fields": ["due_date", "evaluation_date"],
+      "required_evidence": []
+    },
+    {
+      "from": "IN_PROGRESS",
+      "to": "SUSPENDED",
+      "required_fields": ["status_reason"],
+      "required_evidence": ["approval_reference"]
+    },
+    {
+      "from": "OVERDUE",
+      "to": "COMPLETED_LATE",
+      "required_fields": ["completion_date", "completion_result"],
+      "required_evidence": []
+    },
+    {
+      "from": "OVERDUE",
+      "to": "SUSPENDED",
+      "required_fields": ["status_reason"],
+      "required_evidence": ["approval_reference"]
+    },
+    {
+      "from": "SUSPENDED",
+      "to": "IN_PROGRESS",
+      "required_fields": ["resume_date", "status_reason"],
+      "required_evidence": ["approval_reference"]
+    },
+    {
+      "from": "SUSPENDED",
+      "to": "OVERDUE",
+      "required_fields": ["due_date", "evaluation_date", "status_reason"],
+      "required_evidence": ["approval_reference"]
+    }
+  ],
+  "completion_classification": {
+    "COMPLETED_ON_TIME": "completion_date <= due_date",
+    "COMPLETED_LATE": "completion_date > due_date"
+  },
+  "manual_review_cases": [
+    "Thiếu hạn hoàn thành.",
+    "Thiếu ngày giao hoặc ngày bắt đầu khi trường đó được yêu cầu.",
+    "Yêu cầu mở lại nhiệm vụ đã hoàn thành.",
+    "Có xung đột giữa trạng thái và dữ liệu ngày hoặc tiến độ."
+  ]
+}

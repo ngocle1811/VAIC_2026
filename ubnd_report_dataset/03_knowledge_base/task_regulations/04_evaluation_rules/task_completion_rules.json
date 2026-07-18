@@ -1,0 +1,33 @@
+{
+  "document_marker": "NOT_OFFICIAL",
+  "document_status": "NON_PRODUCTION_DRAFT",
+  "domain": "tasks",
+  "version": "draft-1.0",
+  "approval_required": true,
+  "rules": [
+    {
+      "rule_id": "COMPLETED_REQUIRES_FULL_PROGRESS",
+      "when": {"field": "status", "operator": "in", "value": ["COMPLETED_ON_TIME", "COMPLETED_LATE"]},
+      "assert": {"field": "progress_percent", "operator": "equal", "value": 100},
+      "severity": "error"
+    },
+    {
+      "rule_id": "COMPLETED_REQUIRES_DATE",
+      "when": {"field": "status", "operator": "in", "value": ["COMPLETED_ON_TIME", "COMPLETED_LATE"]},
+      "assert": {"field": "completion_date", "operator": "is_not_null"},
+      "severity": "error"
+    },
+    {
+      "rule_id": "COMPLETED_REQUIRES_RESULT",
+      "when": {"field": "status", "operator": "in", "value": ["COMPLETED_ON_TIME", "COMPLETED_LATE"]},
+      "assert": {"field": "completion_result", "operator": "is_not_blank"},
+      "severity": "error"
+    },
+    {
+      "rule_id": "UNFINISHED_MUST_NOT_HAVE_COMPLETION_DATE",
+      "when": {"field": "status", "operator": "in", "value": ["NOT_STARTED", "IN_PROGRESS", "OVERDUE"]},
+      "assert": {"field": "completion_date", "operator": "is_null"},
+      "severity": "error"
+    }
+  ]
+}

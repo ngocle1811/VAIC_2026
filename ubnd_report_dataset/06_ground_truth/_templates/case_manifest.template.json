@@ -1,0 +1,31 @@
+{
+  "manifest_marker": "DRAFT_NOT_GROUND_TRUTH",
+  "case_id": null,
+  "domain": null,
+  "scenario": null,
+  "ground_truth_status": "DRAFT",
+  "approved_for_ground_truth": false,
+  "source_files": [
+    {
+      "relative_path": null,
+      "sha256": null,
+      "document_type": null,
+      "deidentified": null
+    }
+  ],
+  "schema_version": null,
+  "rule_set_versions": [],
+  "template_relative_path": null,
+  "template_sha256": null,
+  "llm_used_as_ground_truth": false,
+  "review": {
+    "extractor_id": null,
+    "extracted_at": null,
+    "reviewer_id": null,
+    "reviewed_at": null,
+    "approver_id": null,
+    "approved_at": null,
+    "disagreements_resolved": false,
+    "notes": null
+  }
+}

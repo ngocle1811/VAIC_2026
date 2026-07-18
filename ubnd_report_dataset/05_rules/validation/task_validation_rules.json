@@ -1,0 +1,19 @@
+{
+    "schema_version":  "1.0",
+    "report_type":  "task",
+    "rules":  [
+                  {
+                      "id":  "RULE_TTHC_01",
+                      "description":  "Tỷ lệ giải quyết đúng hạn phải bằng (ho_so_dung_han / ho_so_da_giai_quyet) * 100",
+                      "formula":  "abs(ty_le_dung_han - (ho_so_dung_han / ho_so_da_giai_quyet) * 100) \u003c 0.1",
+                      "severity":  "warning",
+                      "when":  "ho_so_da_giai_quyet \u003e 0"
+                  },
+                  {
+                      "id":  "RULE_TTHC_02",
+                      "description":  "Tổng số hồ sơ tiếp nhận bằng đã giải quyết cộng đang giải quyết",
+                      "formula":  "tong_ho_so_tiep_nhan == ho_so_da_giai_quyet + ho_so_dang_giai_quyet",
+                      "severity":  "warning"
+                  }
+              ]
+}

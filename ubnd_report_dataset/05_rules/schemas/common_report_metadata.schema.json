@@ -1,0 +1,116 @@
+{
+    "schema_version":  "1.0",
+    "metadata":  {
+                     "fields":  [
+                                    {
+                                        "name":  "report_id",
+                                        "type":  "string",
+                                        "required":  true,
+                                        "description":  "Mã định danh duy nhất của báo cáo"
+                                    },
+                                    {
+                                        "name":  "report_type",
+                                        "type":  "string",
+                                        "required":  true,
+                                        "description":  "Loại báo cáo"
+                                    },
+                                    {
+                                        "name":  "source_file",
+                                        "type":  "string",
+                                        "required":  true,
+                                        "description":  "Tên hoặc đường dẫn tệp nguồn của báo cáo"
+                                    },
+                                    {
+                                        "name":  "source_department_id",
+                                        "type":  "string",
+                                        "required":  true,
+                                        "description":  "Mã phòng ban cung cấp báo cáo"
+                                    },
+                                    {
+                                        "name":  "ingested_at",
+                                        "type":  "datetime",
+                                        "required":  true,
+                                        "description":  "Thời điểm báo cáo được nhập vào hệ thống"
+                                    },
+                                    {
+                                        "name":  "reporting_unit_id",
+                                        "type":  "string",
+                                        "required":  true,
+                                        "description":  "Mã định danh đơn vị hành chính cấp xã/phường (theo mã Tổng cục Thống kê GSO)"
+                                    },
+                                    {
+                                        "name":  "reporting_unit_name",
+                                        "type":  "string",
+                                        "required":  true,
+                                        "description":  "Tên UBND phường/xã báo cáo"
+                                    },
+                                    {
+                                        "name":  "district_name",
+                                        "type":  "string",
+                                        "required":  true,
+                                        "description":  "Tên Quận/Huyện/Thị xã chủ quản"
+                                    },
+                                    {
+                                        "name":  "province_name",
+                                        "type":  "string",
+                                        "required":  true,
+                                        "description":  "Tên Tỉnh/Thành phố trực thuộc Trung ương"
+                                    },
+                                    {
+                                        "name":  "report_period",
+                                        "type":  "string",
+                                        "required":  true,
+                                        "enum":  [
+                                                     "weekly",
+                                                     "monthly",
+                                                     "quarterly",
+                                                     "yearly",
+                                                     "thematic"
+                                                 ],
+                                        "description":  "Kỳ báo cáo (Tuần, Tháng, Quý, Năm, Chuyên đề)"
+                                    },
+                                    {
+                                        "name":  "report_time",
+                                        "type":  "string",
+                                        "required":  true,
+                                        "description":  "Mốc thời gian cụ thể của báo cáo (Ví dụ: Tháng 7/2026, Quý II/2026)"
+                                    },
+                                    {
+                                        "name":  "start_date",
+                                        "type":  "date",
+                                        "required":  true,
+                                        "description":  "Ngày bắt đầu chốt số liệu"
+                                    },
+                                    {
+                                        "name":  "end_date",
+                                        "type":  "date",
+                                        "required":  true,
+                                        "description":  "Ngày kết thúc chốt số liệu"
+                                    },
+                                    {
+                                        "name":  "created_date",
+                                        "type":  "date",
+                                        "required":  false,
+                                        "description":  "Ngày lập văn bản báo cáo"
+                                    },
+                                    {
+                                        "name":  "document_number",
+                                        "type":  "string",
+                                        "required":  false,
+                                        "description":  "Số và ký hiệu văn bản báo cáo"
+                                    },
+                                    {
+                                        "name":  "approver_role",
+                                        "type":  "string",
+                                        "required":  false,
+                                        "description":  "Chức danh người ký duyệt (Chủ tịch/Phó Chủ tịch)"
+                                    },
+                                    {
+                                        "name":  "approver_name",
+                                        "type":  "string",
+                                        "required":  false,
+                                        "description":  "Họ và tên người ký duyệt"
+                                    }
+                                ]
+                 }
+}

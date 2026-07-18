@@ -1,0 +1,6 @@
+{
+  "ground_truth_label": "NOT_OFFICIAL",
+  "source_input": "../inputs/complaints.json",
+  "derivation": "explicit_fixture_copy",
+  "expected_values": {"metric_alpha": 5, "metric_beta": 3}
+}

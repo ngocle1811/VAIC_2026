@@ -1,0 +1,100 @@
+{
+    "schema_version":  "1.0",
+    "report_type":  "population",
+    "sections":  {
+                     "dan_cu":  {
+                                    "display_name":  "Dân cư",
+                                    "fields":  [
+                                                   {
+                                                       "name":  "tong_dan_so",
+                                                       "type":  "integer",
+                                                       "description":  "Tổng số dân cư trú thực tế trên địa bàn",
+                                                       "aliases":  [
+                                                                       "Dân số toàn phường",
+                                                                       "Tổng số dân",
+                                                                       "Số nhân khẩu",
+                                                                       "Tổng số người"
+                                                                   ]
+                                                   },
+                                                   {
+                                                       "name":  "so_ho_khau",
+                                                       "type":  "integer",
+                                                       "description":  "Tổng số hộ gia đình trên địa bàn",
+                                                       "aliases":  [
+                                                                       "Tổng số hộ",
+                                                                       "Số hộ gia đình",
+                                                                       "Số hộ dân"
+                                                                   ]
+                                                   },
+                                                   {
+                                                       "name":  "so_khai_sinh",
+                                                       "type":  "integer",
+                                                       "description":  "Tổng số trường hợp đăng ký khai sinh trong kỳ",
+                                                       "aliases":  [
+                                                                       "Đăng ký khai sinh",
+                                                                       "Số trường hợp khai sinh",
+                                                                       "Số trẻ khai sinh"
+                                                                   ]
+                                                   },
+                                                   {
+                                                       "name":  "so_khai_sinh_dung_han",
+                                                       "type":  "integer",
+                                                       "description":  "Số trường hợp đăng ký khai sinh đúng thời hạn",
+                                                       "aliases":  [
+                                                                       "Khai sinh đúng hạn",
+                                                                       "Đăng ký khai sinh đúng hạn"
+                                                                   ]
+                                                   },
+                                                   {
+                                                       "name":  "so_khai_tu",
+                                                       "type":  "integer",
+                                                       "description":  "Tổng số trường hợp đăng ký khai tử trong kỳ",
+                                                       "aliases":  [
+                                                                       "Đăng ký khai tử",
+                                                                       "Số trường hợp tử vong",
+                                                                       "Khai tử"
+                                                                   ]
+                                                   },
+                                                   {
+                                                       "name":  "so_khai_tu_dung_han",
+                                                       "type":  "integer",
+                                                       "description":  "Số trường hợp đăng ký khai tử đúng thời hạn",
+                                                       "aliases":  [
+                                                                       "Khai tử đúng hạn",
+                                                                       "Đăng ký khai tử đúng hạn"
+                                                                   ]
+                                                   },
+                                                   {
+                                                       "name":  "so_ket_hon",
+                                                       "type":  "integer",
+                                                       "description":  "Số cặp đôi đăng ký kết hôn",
+                                                       "aliases":  [
+                                                                       "Đăng ký kết hôn",
+                                                                       "Số trường hợp kết hôn",
+                                                                       "Số cặp kết hôn"
+                                                                   ]
+                                                   },
+                                                   {
+                                                       "name":  "so_tamtru_moi",
+                                                       "type":  "integer",
+                                                       "description":  "Số lượng công dân đăng ký tạm trú mới trong kỳ",
+                                                       "aliases":  [
+                                                                       "Đăng ký tạm trú",
+                                                                       "Tạm trú mới",
+                                                                       "Nhân khẩu tạm trú mới"
+                                                                   ]
+                                                   },
+                                                   {
+                                                       "name":  "so_tamvang_moi",
+                                                       "type":  "integer",
+                                                       "description":  "Số lượng công dân khai báo tạm vắng mới trong kỳ",
+                                                       "aliases":  [
+                                                                       "Đăng ký tạm vắng",
+                                                                       "Tạm vắng mới",
+                                                                       "Khai báo tạm vắng"
+                                                                   ]
+                                                   }
+                                               ]
+                                }
+                 }
+}

@@ -1,0 +1,17 @@
+domain,case_id,scenario,purpose,status
+population,case_01_normal,normal,Kiểm tra trích xuất và chuẩn hóa dữ liệu hợp lệ,AWAITING_OFFICIAL_INPUT
+population,case_02_missing_fields,missing_fields,Kiểm tra cảnh báo khi trường bắt buộc bị thiếu,AWAITING_OFFICIAL_INPUT
+population,case_03_wrong_total,wrong_total,Kiểm tra phát hiện tổng không nhất quán,AWAITING_OFFICIAL_INPUT
+population,case_04_wrong_period,wrong_period,Kiểm tra phát hiện kỳ báo cáo không hợp lệ,AWAITING_OFFICIAL_INPUT
+population,case_05_mixed_formats,mixed_formats,Kiểm tra ingest từ PDF Word và Excel,AWAITING_OFFICIAL_INPUT
+complaints,case_01_normal,normal,Kiểm tra trích xuất và chuẩn hóa dữ liệu hợp lệ,AWAITING_OFFICIAL_INPUT
+complaints,case_02_wrong_total,wrong_total,Kiểm tra Rule Engine với tổng không nhất quán,AWAITING_OFFICIAL_INPUT
+complaints,case_03_missing_fields,missing_fields,Kiểm tra cảnh báo khi trường bắt buộc bị thiếu,AWAITING_OFFICIAL_INPUT
+complaints,case_04_wrong_period,wrong_period,Kiểm tra phát hiện kỳ báo cáo không hợp lệ,AWAITING_OFFICIAL_INPUT
+complaints,case_05_mixed_formats,mixed_formats,Kiểm tra ingest từ PDF Word và Excel,AWAITING_OFFICIAL_INPUT
+tasks,case_01_normal,normal,Kiểm tra trích xuất và chuẩn hóa dữ liệu hợp lệ,AWAITING_OFFICIAL_INPUT
+tasks,case_02_overdue,overdue,Kiểm tra xác định nhiệm vụ quá hạn theo ngày đã duyệt,AWAITING_OFFICIAL_INPUT
+tasks,case_03_missing_fields,missing_fields,Kiểm tra cảnh báo khi trường bắt buộc bị thiếu,AWAITING_OFFICIAL_INPUT
+tasks,case_04_wrong_total,wrong_total,Kiểm tra Rule Engine với tổng không nhất quán,AWAITING_OFFICIAL_INPUT
+tasks,case_05_wrong_period,wrong_period,Kiểm tra phát hiện kỳ báo cáo không hợp lệ,AWAITING_OFFICIAL_INPUT
+tasks,case_06_mixed_formats,mixed_formats,Kiểm tra ingest từ PDF Word và Excel,AWAITING_OFFICIAL_INPUT

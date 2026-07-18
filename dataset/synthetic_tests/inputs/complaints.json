@@ -1,0 +1,8 @@
+{
+  "data_label": "SYNTHETIC_TEST_DATA",
+  "domain": "complaints",
+  "report_id": "synthetic-complaints-001",
+  "reporting_period": {"kind": "quarter", "start": "2099-01-01", "end": "2099-03-31"},
+  "organization": {"organization_id": "synthetic-org", "organization_name": "SYNTHETIC ORGANIZATION"},
+  "values": {"metric_alpha": 5, "metric_beta": 3}
+}

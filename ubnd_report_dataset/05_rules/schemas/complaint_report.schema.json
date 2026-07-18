@@ -1,0 +1,108 @@
+{
+    "schema_version":  "1.0",
+    "report_type":  "complaint",
+    "sections":  {
+                     "khieu_nai_to_cao":  {
+                                              "display_name":  "Khiếu nại - Tố cáo",
+                                              "fields":  [
+                                                             {
+                                                                 "name":  "so_luot_tiep_dan",
+                                                                 "type":  "integer",
+                                                                 "description":  "Số lượt tiếp công dân tại Trụ sở tiếp dân của phường",
+                                                                 "aliases":  [
+                                                                                 "Tiếp công dân",
+                                                                                 "Số lượt tiếp dân",
+                                                                                 "Số lượt tiếp công dân"
+                                                                             ]
+                                                             },
+                                                             {
+                                                                 "name":  "so_doan_dong_nguoi",
+                                                                 "type":  "integer",
+                                                                 "description":  "Số lượng các đoàn đông người khiếu nại, tố cáo",
+                                                                 "aliases":  [
+                                                                                 "Đoàn đông người",
+                                                                                 "Số đoàn đông người"
+                                                                             ]
+                                                             },
+                                                             {
+                                                                 "name":  "tong_so_don",
+                                                                 "type":  "integer",
+                                                                 "description":  "Tổng số đơn khiếu nại, tố cáo, kiến nghị, phản ánh tiếp nhận",
+                                                                 "aliases":  [
+                                                                                 "Tổng số đơn tiếp nhận",
+                                                                                 "Số lượng đơn thư",
+                                                                                 "Tổng số đơn",
+                                                                                 "Đơn thư tiếp nhận"
+                                                                             ]
+                                                             },
+                                                             {
+                                                                 "name":  "don_thuoc_tham_quyen",
+                                                                 "type":  "integer",
+                                                                 "description":  "Số đơn thuộc thẩm quyền giải quyết của UBND phường",
+                                                                 "aliases":  [
+                                                                                 "Đơn thuộc thẩm quyền",
+                                                                                 "Thuộc thẩm quyền giải quyết"
+                                                                             ]
+                                                             },
+                                                             {
+                                                                 "name":  "don_khieu_nai",
+                                                                 "type":  "integer",
+                                                                 "description":  "Số lượng đơn khiếu nại",
+                                                                 "aliases":  [
+                                                                                 "Đơn khiếu nại",
+                                                                                 "Khiếu nại"
+                                                                             ]
+                                                             },
+                                                             {
+                                                                 "name":  "don_to_cao",
+                                                                 "type":  "integer",
+                                                                 "description":  "Số lượng đơn tố cáo",
+                                                                 "aliases":  [
+                                                                                 "Đơn tố cáo",
+                                                                                 "Tố cáo"
+                                                                             ]
+                                                             },
+                                                             {
+                                                                 "name":  "don_kien_nghi_phan_anh",
+                                                                 "type":  "integer",
+                                                                 "description":  "Số lượng đơn kiến nghị, phản ánh",
+                                                                 "aliases":  [
+                                                                                 "Đơn kiến nghị, phản ánh",
+                                                                                 "Kiến nghị phản ánh",
+                                                                                 "Đơn phản ánh, kiến nghị"
+                                                                             ]
+                                                             },
+                                                             {
+                                                                 "name":  "don_da_giai_quyet",
+                                                                 "type":  "integer",
+                                                                 "description":  "Số lượng đơn đã giải quyết xong và ban hành kết luận/quyết định",
+                                                                 "aliases":  [
+                                                                                 "Đơn đã giải quyết",
+                                                                                 "Kết quả giải quyết",
+                                                                                 "Đã giải quyết xong"
+                                                                             ]
+                                                             },
+                                                             {
+                                                                 "name":  "don_dang_giai_quyet",
+                                                                 "type":  "integer",
+                                                                 "description":  "Số lượng đơn đang trong thời hạn xem xét giải quyết",
+                                                                 "aliases":  [
+                                                                                 "Đang giải quyết",
+                                                                                 "Đơn đang giải quyết",
+                                                                                 "Trong thời hạn giải quyết"
+                                                                             ]
+                                                             },
+                                                             {
+                                                                 "name":  "don_qua_han_chua_giai_quyet",
+                                                                 "type":  "integer",
+                                                                 "description":  "Số lượng đơn quá thời hạn luật định nhưng chưa giải quyết xong",
+                                                                 "aliases":  [
+                                                                                 "Đơn tồn đọng",
+                                                                                 "Quá hạn giải quyết",
+                                                                                 "Đơn quá hạn"
+                                                                             ]
+                                                             }
+                                                         ]
+                                          }
+                 }
+}

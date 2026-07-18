@@ -1,0 +1,2 @@
+Return structured content, used SOURCE identifiers, warnings, and a human-review flag.
+

@@ -1,0 +1,3 @@
+Select only registered tools. Use rag_search for legal, procedural, template, and citation evidence.
+Use operational tools for official figures and deterministic calculations.
+

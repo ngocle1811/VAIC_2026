@@ -1,0 +1,96 @@
+{
+  "dataset": "01_input_reports",
+  "description": "Báo cáo đầu vào giả lập cho hệ thống AI tổng hợp báo cáo UBND",
+  "domains": [
+    "population",
+    "complaints",
+    "tasks"
+  ],
+  "file_count": 12,
+  "files": [
+    {
+      "path": "complaints/invalid/bao_cao_khieu_nai_to_cao_thang_06_2026_sai_tong.xlsx",
+      "domain": "complaints",
+      "quality": "invalid",
+      "format": "xlsx",
+      "synthetic": true
+    },
+    {
+      "path": "complaints/normal/bao_cao_khieu_nai_to_cao_thang_04_2026.docx",
+      "domain": "complaints",
+      "quality": "normal",
+      "format": "docx",
+      "synthetic": true
+    },
+    {
+      "path": "complaints/normal/bao_cao_khieu_nai_to_cao_thang_05_2026.xlsx",
+      "domain": "complaints",
+      "quality": "normal",
+      "format": "xlsx",
+      "synthetic": true
+    },
+    {
+      "path": "complaints/normal/bao_cao_khieu_nai_to_cao_thang_06_2026.pdf",
+      "domain": "complaints",
+      "quality": "normal",
+      "format": "pdf",
+      "synthetic": true
+    },
+    {
+      "path": "population/invalid/bao_cao_dan_cu_thang_06_2026_thieu_truong.xlsx",
+      "domain": "population",
+      "quality": "invalid",
+      "format": "xlsx",
+      "synthetic": true
+    },
+    {
+      "path": "population/normal/bao_cao_dan_cu_thang_04_2026.xlsx",
+      "domain": "population",
+      "quality": "normal",
+      "format": "xlsx",
+      "synthetic": true
+    },
+    {
+      "path": "population/normal/bao_cao_dan_cu_thang_05_2026.docx",
+      "domain": "population",
+      "quality": "normal",
+      "format": "docx",
+      "synthetic": true
+    },
+    {
+      "path": "population/normal/bao_cao_dan_cu_thang_06_2026.pdf",
+      "domain": "population",
+      "quality": "normal",
+      "format": "pdf",
+      "synthetic": true
+    },
+    {
+      "path": "tasks/invalid/bao_cao_tien_do_nhiem_vu_thang_06_2026_du_lieu_loi.xlsx",
+      "domain": "tasks",
+      "quality": "invalid",
+      "format": "xlsx",
+      "synthetic": true
+    },
+    {
+      "path": "tasks/normal/bao_cao_tien_do_nhiem_vu_thang_04_2026.xlsx",
+      "domain": "tasks",
+      "quality": "normal",
+      "format": "xlsx",
+      "synthetic": true
+    },
+    {
+      "path": "tasks/normal/bao_cao_tien_do_nhiem_vu_thang_05_2026.docx",
+      "domain": "tasks",
+      "quality": "normal",
+      "format": "docx",
+      "synthetic": true
+    },
+    {
+      "path": "tasks/normal/bao_cao_tien_do_nhiem_vu_thang_06_2026.xlsx",
+      "domain": "tasks",
+      "quality": "normal",
+      "format": "xlsx",
+      "synthetic": true
+    }
+  ]
+}

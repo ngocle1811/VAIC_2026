@@ -1,0 +1,6 @@
+{
+  "ground_truth_label": "NOT_OFFICIAL",
+  "source_input": "../inputs/population.json",
+  "derivation": "explicit_fixture_copy",
+  "expected_values": {"metric_alpha": 12, "metric_beta": 8}
+}

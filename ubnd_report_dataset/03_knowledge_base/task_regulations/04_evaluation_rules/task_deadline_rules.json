@@ -1,0 +1,42 @@
+{
+  "document_marker": "NOT_OFFICIAL",
+  "document_status": "NON_PRODUCTION_DRAFT",
+  "domain": "tasks",
+  "version": "draft-1.0",
+  "approval_required": true,
+  "rules": [
+    {
+      "rule_id": "DUE_DATE_NOT_BEFORE_ASSIGNMENT_DATE",
+      "assert": {"field": "due_date", "operator": "greater_than_or_equal_field", "value_field": "assignment_date"},
+      "severity": "error"
+    },
+    {
+      "rule_id": "COMPLETION_NOT_BEFORE_ASSIGNMENT",
+      "when": {"field": "completion_date", "operator": "is_not_null"},
+      "assert": {"field": "completion_date", "operator": "greater_than_or_equal_field", "value_field": "assignment_date"},
+      "severity": "error"
+    },
+    {
+      "rule_id": "OVERDUE_STATUS_CONSISTENCY",
+      "when": {"field": "status", "operator": "equal", "value": "OVERDUE"},
+      "assert_all": [
+        {"field": "completion_date", "operator": "is_null"},
+        {"field": "evaluation_date", "operator": "greater_than_field", "value_field": "due_date"}
+      ],
+      "severity": "error"
+    },
+    {
+      "rule_id": "LATE_STATUS_CONSISTENCY",
+      "when": {"field": "status", "operator": "equal", "value": "COMPLETED_LATE"},
+      "assert": {"field": "completion_date", "operator": "greater_than_field", "value_field": "due_date"},
+      "severity": "error"
+    },
+    {
+      "rule_id": "ON_TIME_STATUS_CONSISTENCY",
+      "when": {"field": "status", "operator": "equal", "value": "COMPLETED_ON_TIME"},
+      "assert": {"field": "completion_date", "operator": "less_than_or_equal_field", "value_field": "due_date"},
+      "severity": "error"
+    }
+  ],
+  "missing_deadline_policy": "VALIDATION_WARNING_AND_MANUAL_REVIEW"
+}

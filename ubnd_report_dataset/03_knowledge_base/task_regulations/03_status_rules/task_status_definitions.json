@@ -1,0 +1,40 @@
+{
+  "document_marker": "NOT_OFFICIAL",
+  "document_status": "NON_PRODUCTION_DRAFT",
+  "domain": "tasks",
+  "version": "draft-1.0",
+  "approval_required": true,
+  "description": "Bộ trạng thái kỹ thuật đề xuất cho kiểm thử và phát triển; không phải quy định chính thức.",
+  "statuses": [
+    {
+      "code": "NOT_STARTED",
+      "label": "Chưa thực hiện",
+      "description": "Nhiệm vụ chưa ghi nhận bắt đầu thực hiện."
+    },
+    {
+      "code": "IN_PROGRESS",
+      "label": "Đang thực hiện",
+      "description": "Nhiệm vụ đã bắt đầu và chưa hoàn thành."
+    },
+    {
+      "code": "COMPLETED_ON_TIME",
+      "label": "Hoàn thành đúng hạn",
+      "description": "Đã hoàn thành và ngày hoàn thành không sau hạn hoàn thành."
+    },
+    {
+      "code": "COMPLETED_LATE",
+      "label": "Hoàn thành quá hạn",
+      "description": "Đã hoàn thành nhưng ngày hoàn thành sau hạn hoàn thành."
+    },
+    {
+      "code": "OVERDUE",
+      "label": "Quá hạn chưa hoàn thành",
+      "description": "Đã qua hạn hoàn thành tại thời điểm đánh giá nhưng chưa có ngày hoàn thành."
+    },
+    {
+      "code": "SUSPENDED",
+      "label": "Tạm dừng",
+      "description": "Tạm ngừng xử lý theo quyết định hoặc xác nhận có thẩm quyền."
+    }
+  ]
+}

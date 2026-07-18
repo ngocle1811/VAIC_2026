@@ -1,0 +1,79 @@
+{
+    "schema_version":  "1.0",
+    "report_type":  "task",
+    "sections":  {
+                     "chi_tieu_nhiem_vu":  {
+                                               "display_name":  "Chỉ tiêu thực hiện nhiệm vụ",
+                                               "fields":  [
+                                                              {
+                                                                  "name":  "tong_ho_so_tiep_nhan",
+                                                                  "type":  "integer",
+                                                                  "description":  "Tổng số hồ sơ yêu cầu giải quyết thủ tục hành chính tiếp nhận",
+                                                                  "aliases":  [
+                                                                                  "Tổng hồ sơ nhận",
+                                                                                  "Hồ sơ tiếp nhận",
+                                                                                  "Tổng số hồ sơ tiếp nhận"
+                                                                              ]
+                                                              },
+                                                              {
+                                                                  "name":  "ho_so_da_giai_quyet",
+                                                                  "type":  "integer",
+                                                                  "description":  "Số hồ sơ thủ tục hành chính đã giải quyết và trả kết quả",
+                                                                  "aliases":  [
+                                                                                  "Hồ sơ đã giải quyết",
+                                                                                  "Đã giải quyết và trả kết quả",
+                                                                                  "Kết quả giải quyết TTHC"
+                                                                              ]
+                                                              },
+                                                              {
+                                                                  "name":  "ho_so_dung_han",
+                                                                  "type":  "integer",
+                                                                  "description":  "Số lượng hồ sơ hành chính được giải quyết đúng hoặc trước hạn",
+                                                                  "aliases":  [
+                                                                                  "Hồ sơ đúng hạn",
+                                                                                  "Giải quyết đúng hạn và trước hạn",
+                                                                                  "Hồ sơ trước và đúng hạn"
+                                                                              ]
+                                                              },
+                                                              {
+                                                                  "name":  "ho_so_qua_han",
+                                                                  "type":  "integer",
+                                                                  "description":  "Số lượng hồ sơ hành chính giải quyết quá hạn quy định",
+                                                                  "aliases":  [
+                                                                                  "Hồ sơ quá hạn",
+                                                                                  "Giải quyết quá hạn"
+                                                                              ]
+                                                              },
+                                                              {
+                                                                  "name":  "ho_so_dang_giai_quyet",
+                                                                  "type":  "integer",
+                                                                  "description":  "Số lượng hồ sơ hành chính đang trong quá trình xử lý",
+                                                                  "aliases":  [
+                                                                                  "Hồ sơ đang giải quyết",
+                                                                                  "Đang xử lý"
+                                                                              ]
+                                                              },
+                                                              {
+                                                                  "name":  "ty_le_dung_han",
+                                                                  "type":  "float",
+                                                                  "description":  "Tỷ lệ phần trăm hồ sơ giải quyết đúng hạn so với tổng hồ sơ đã giải quyết",
+                                                                  "aliases":  [
+                                                                                  "Tỷ lệ giải quyết đúng hạn",
+                                                                                  "Tỷ lệ hồ sơ đúng hạn",
+                                                                                  "Hiệu suất đúng hạn"
+                                                                              ]
+                                                              },
+                                                              {
+                                                                  "name":  "diem_cai_cach_hanh_chinh",
+                                                                  "type":  "float",
+                                                                  "description":  "Điểm số cải cách hành chính (PAR INDEX) của phường",
+                                                                  "aliases":  [
+                                                                                  "Điểm cải cách hành chính",
+                                                                                  "Điểm PAR INDEX",
+                                                                                  "Chỉ số cải cách hành chính"
+                                                                              ]
+                                                              }
+                                                          ]
+                                           }
+                 }
+}
