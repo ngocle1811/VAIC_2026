@@ -11,6 +11,21 @@ from app.operational_data.models import DataClassification
 from app.reporting.models import ReportStatus
 from app.reporting.repository import GeneratedReportRepository
 
+POPULATION_FIELD_LABELS = {
+    "population_opening": "Dân số thường trú đầu kỳ",
+    "population_closing": "Dân số thường trú cuối kỳ",
+    "birth_registered": "Tổng khai sinh đăng ký",
+    "birth_local_resident": "Khai sinh thuộc dân cư thường trú của xã",
+    "death_registered": "Tổng khai tử đăng ký",
+    "death_local_resident": "Khai tử thuộc dân cư thường trú của xã",
+    "permanent_in": "Đăng ký thường trú đến",
+    "permanent_out": "Xóa/chuyển thường trú đi",
+    "temporary_opening": "Người tạm trú đầu kỳ",
+    "temporary_new": "Đăng ký tạm trú mới",
+    "temporary_removed": "Xóa/hết tạm trú",
+    "temporary_closing": "Người tạm trú cuối kỳ",
+}
+
 
 class ReportGenerationService:
     def __init__(self, repository: GeneratedReportRepository, output_dir: Path) -> None:
@@ -36,7 +51,9 @@ class ReportGenerationService:
         table.rows[0].cells[1].text = "Giá trị nguồn"
         for name, value in source.values.items():
             cells = table.add_row().cells
-            cells[0].text = name
+            cells[0].text = (
+                POPULATION_FIELD_LABELS.get(name, name) if source.domain == "population" else name
+            )
             cells[1].text = "" if value is None else str(value)
         if source.records:
             document.add_heading("Danh sách bản ghi", level=1)

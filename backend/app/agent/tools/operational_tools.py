@@ -33,6 +33,13 @@ class OperationalDataQueryTool:
                     "classification": record.classification,
                     "values": record.values,
                     "records": record.records,
+                    "provenance": record.provenance,
+                    "population_schema": (
+                        "population-canonical-v1"
+                        if record.domain == "population"
+                        and "population_opening" in record.values
+                        else "legacy-compatible"
+                    ),
                 }
             },
             source_ids=[record.id],
@@ -80,7 +87,12 @@ class StoredValidationTool:
             data={
                 "validation_issues": record.issues,
                 "official_data_modified": False,
-                "ruleset": "SYNTHETIC_NON_PRODUCTION_RULE",
+                "ruleset": (
+                    "POPULATION_CANONICAL_DETERMINISTIC_V1"
+                    if record.domain == "population"
+                    and "population_opening" in record.values
+                    else "SYNTHETIC_NON_PRODUCTION_RULE"
+                ),
             },
             source_ids=[record.id],
         )

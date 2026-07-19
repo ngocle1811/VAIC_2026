@@ -7,6 +7,9 @@ from app.operational_data.models import (
     OperationalDomain,
     OperationalReport,
     OperationalValidationResult,
+    PopulationExtractedSource,
+    PopulationSourceBundle,
+    PopulationSourceRole,
 )
 
 
@@ -18,6 +21,19 @@ class OperationalReportExtractor(Protocol):
 
 class PopulationReportExtractor(OperationalReportExtractor, Protocol):
     domain: Literal[OperationalDomain.POPULATION]
+
+
+class PopulationWorkbookExtractorProtocol(Protocol):
+    def extract(
+        self,
+        source_path: Path,
+        expected_role: PopulationSourceRole | None = None,
+        source_filename: str | None = None,
+    ) -> PopulationExtractedSource: ...
+
+
+class PopulationBundleStandardizerProtocol(Protocol):
+    def standardize(self, bundle: PopulationSourceBundle) -> OperationalReport: ...
 
 
 class ComplaintsReportExtractor(OperationalReportExtractor, Protocol):

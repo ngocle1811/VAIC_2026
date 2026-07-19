@@ -17,7 +17,6 @@ from app.reporting.models import ReportStatus
 from app.reporting.repository import GeneratedReportRepository
 from app.reporting.service import ReportGenerationService
 
-
 DATASET = Path(__file__).parents[3] / "ubnd_report_dataset" / "01_input_reports"
 
 

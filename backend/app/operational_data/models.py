@@ -43,6 +43,14 @@ class IssueSeverity(StrEnum):
     WARNING = "warning"
 
 
+class PopulationSourceRole(StrEnum):
+    """Deterministic role of one workbook in a population bundle."""
+
+    OPENING_BALANCE = "OPENING_BALANCE"
+    CIVIL_STATUS = "CIVIL_STATUS"
+    RESIDENCE_MOVEMENT = "RESIDENCE_MOVEMENT"
+
+
 OperationalScalar = str | int | Decimal | bool | date | None
 
 
@@ -86,6 +94,7 @@ class SourceProvenance(BaseModel):
     extraction_method: str = Field(min_length=1, max_length=128)
     model_produced: bool = False
     evidence: str | None = Field(default=None, max_length=2000)
+    source_role: PopulationSourceRole | None = None
 
 
 class ValidationIssue(BaseModel):
@@ -94,6 +103,46 @@ class ValidationIssue(BaseModel):
     severity: IssueSeverity
     field_path: str | None = Field(default=None, max_length=512)
     source: SourceProvenance | None = None
+
+
+class PopulationReportValues(BaseModel):
+    """Canonical population values; missing source values remain null."""
+
+    population_opening: int | None = Field(default=None, ge=0)
+    population_closing: int | None = Field(default=None, ge=0)
+    birth_registered: int | None = Field(default=None, ge=0)
+    birth_local_resident: int | None = Field(default=None, ge=0)
+    death_registered: int | None = Field(default=None, ge=0)
+    death_local_resident: int | None = Field(default=None, ge=0)
+    permanent_in: int | None = Field(default=None, ge=0)
+    permanent_out: int | None = Field(default=None, ge=0)
+    temporary_opening: int | None = Field(default=None, ge=0)
+    temporary_new: int | None = Field(default=None, ge=0)
+    temporary_removed: int | None = Field(default=None, ge=0)
+    temporary_closing: int | None = Field(default=None, ge=0)
+
+
+class PopulationExtractedSource(BaseModel):
+    """One population workbook after deterministic extraction and reconciliation."""
+
+    role: PopulationSourceRole
+    source_filename: str = Field(min_length=1, max_length=512)
+    source_sha256: Annotated[str, Field(pattern=r"^[a-fA-F0-9]{64}$")]
+    reporting_period: ReportingPeriod
+    organization: OrganizationMetadata
+    classification: DataClassification
+    values: dict[str, int] = Field(default_factory=dict)
+    provenance: dict[str, list[SourceProvenance]] = Field(default_factory=dict)
+    sheet_names: list[str] = Field(default_factory=list)
+    detail_counts: dict[str, int] = Field(default_factory=dict)
+    detail_record_count: int = Field(default=0, ge=0)
+    extraction_warnings: list[ValidationIssue] = Field(default_factory=list)
+
+
+class PopulationSourceBundle(BaseModel):
+    """Unstandardized population inputs; role completeness is checked by the standardizer."""
+
+    sources: list[PopulationExtractedSource] = Field(min_length=1)
 
 
 class OperationalReport(BaseModel):

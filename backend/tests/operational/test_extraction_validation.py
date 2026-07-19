@@ -6,7 +6,6 @@ from app.operational_data.extraction import RepositoryOperationalExtractor
 from app.operational_data.models import DataClassification, OperationalDomain
 from app.operational_data.validation import SyntheticOperationalValidator
 
-
 DATASET = Path(__file__).parents[3] / "ubnd_report_dataset" / "01_input_reports"
 
 

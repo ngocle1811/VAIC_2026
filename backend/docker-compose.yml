@@ -17,7 +17,7 @@ services:
       AGENT_ENABLE_PRODUCTION_ORCHESTRATION: "false"
       PYTHONIOENCODING: utf-8
     ports:
-      - "8000:8000"
+      - "${BACKEND_HOST_PORT:-8010}:8000"
     volumes:
       - backend_storage:/app/storage
     depends_on:

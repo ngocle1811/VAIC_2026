@@ -174,5 +174,7 @@ class AgentOrchestrator:
             ]
             result.human_review_required = True
             state.human_review_required = True
+        if result.human_review_required:
+            state.human_review_required = True
         state.final_response = result.content
         return result

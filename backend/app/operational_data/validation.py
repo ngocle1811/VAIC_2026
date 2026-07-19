@@ -15,6 +15,21 @@ from app.operational_data.models import (
     ValidationIssue,
 )
 
+CANONICAL_POPULATION_FIELDS = (
+    "population_opening",
+    "population_closing",
+    "birth_registered",
+    "birth_local_resident",
+    "death_registered",
+    "death_local_resident",
+    "permanent_in",
+    "permanent_out",
+    "temporary_opening",
+    "temporary_new",
+    "temporary_removed",
+    "temporary_closing",
+)
+
 
 def _number(value: object) -> Decimal | None:
     try:
@@ -45,7 +60,12 @@ class SyntheticOperationalValidator:
         warnings: list[ValidationIssue] = []
         domain = candidate.metadata.domain
         if domain is OperationalDomain.POPULATION:
-            self._population(candidate, errors)
+            if "population_opening" in candidate.values:
+                canonical = PopulationCanonicalValidator().validate(candidate)
+                errors.extend(canonical.errors)
+                warnings.extend(canonical.warnings)
+            else:
+                self._population(candidate, errors)
         elif domain is OperationalDomain.COMPLAINTS:
             self._complaints(candidate, errors)
         else:
@@ -222,3 +242,120 @@ class SyntheticOperationalValidator:
                         f"{prefix}.status",
                     )
                 )
+
+
+class PopulationCanonicalValidator:
+    """Validate canonical population identities without modifying source values."""
+
+    def validate(self, report: OperationalReport) -> OperationalValidationResult:
+        candidate = report.model_copy(deep=True)
+        before = deepcopy(candidate.values)
+        errors: list[ValidationIssue] = []
+        warnings: list[ValidationIssue] = []
+        values = candidate.values
+
+        for field in CANONICAL_POPULATION_FIELDS:
+            value = _number(values.get(field))
+            if value is None:
+                errors.append(_issue("POP_REQUIRED_FIELD_MISSING", "Thiếu trường bắt buộc.", field))
+            elif value < 0:
+                errors.append(
+                    _issue("POP_NEGATIVE_VALUE", "Chỉ tiêu phải là số nguyên không âm.", field)
+                )
+
+        birth_registered = _number(values.get("birth_registered"))
+        birth_local = _number(values.get("birth_local_resident"))
+        if birth_registered is not None and birth_local is not None:
+            if birth_local > birth_registered:
+                errors.append(
+                    _issue(
+                        "POP_BIRTH_LOCAL_EXCEEDS_REGISTERED",
+                        (
+                            "Khai sinh thuộc dân cư thường trú không được lớn hơn "
+                            "tổng khai sinh đăng ký."
+                        ),
+                        "birth_local_resident",
+                    )
+                )
+            elif birth_local != birth_registered:
+                warnings.append(
+                    _issue(
+                        "POP_BIRTH_REGISTRATION_SCOPE_DIFFERS",
+                        "Tổng khai sinh đăng ký khác số thuộc dân cư thường trú của xã.",
+                        "birth_local_resident",
+                        IssueSeverity.WARNING,
+                    )
+                )
+
+        death_registered = _number(values.get("death_registered"))
+        death_local = _number(values.get("death_local_resident"))
+        if death_registered is not None and death_local is not None:
+            if death_local > death_registered:
+                errors.append(
+                    _issue(
+                        "POP_DEATH_LOCAL_EXCEEDS_REGISTERED",
+                        "Khai tử thuộc dân cư thường trú không được lớn hơn tổng khai tử đăng ký.",
+                        "death_local_resident",
+                    )
+                )
+            elif death_local != death_registered:
+                warnings.append(
+                    _issue(
+                        "POP_DEATH_REGISTRATION_SCOPE_DIFFERS",
+                        "Tổng khai tử đăng ký khác số thuộc dân cư thường trú của xã.",
+                        "death_local_resident",
+                        IssueSeverity.WARNING,
+                    )
+                )
+
+        permanent_inputs = (
+            "population_opening",
+            "birth_local_resident",
+            "permanent_in",
+            "death_local_resident",
+            "permanent_out",
+            "population_closing",
+        )
+        permanent = {field: _number(values.get(field)) for field in permanent_inputs}
+        if all(value is not None for value in permanent.values()):
+            expected = (
+                permanent["population_opening"]
+                + permanent["birth_local_resident"]
+                + permanent["permanent_in"]
+                - permanent["death_local_resident"]
+                - permanent["permanent_out"]
+            )
+            if expected != permanent["population_closing"]:
+                errors.append(
+                    _issue(
+                        "POP_CANONICAL_BALANCE_MISMATCH",
+                        "Dân số thường trú cuối kỳ không khớp công thức canonical.",
+                        "population_closing",
+                    )
+                )
+
+        temporary_inputs = (
+            "temporary_opening",
+            "temporary_new",
+            "temporary_removed",
+            "temporary_closing",
+        )
+        temporary = {field: _number(values.get(field)) for field in temporary_inputs}
+        if all(value is not None for value in temporary.values()):
+            expected = (
+                temporary["temporary_opening"]
+                + temporary["temporary_new"]
+                - temporary["temporary_removed"]
+            )
+            if expected != temporary["temporary_closing"]:
+                errors.append(
+                    _issue(
+                        "POP_TEMPORARY_BALANCE_MISMATCH",
+                        "Số người tạm trú cuối kỳ không khớp công thức canonical.",
+                        "temporary_closing",
+                    )
+                )
+
+        if before != candidate.values:
+            raise RuntimeError("validation modified canonical population values")
+        return OperationalValidationResult(report=candidate, errors=errors, warnings=warnings)
